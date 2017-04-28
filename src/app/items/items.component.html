@@ -1,0 +1,26 @@
+<h2>List items</h2>
+
+<form style="width: 600px;">
+   <md-list style="width: 40%; float: left;">
+    <md-list-item *ngFor="let item of items" (click)="showInfo(item)">
+      <span>
+          {{item.name}}
+      </span>
+      <span>
+        <button md-raised-button (click)="removeItem(item); $event.stopPropagation()">Remove</button>
+      </span>
+    </md-list-item>
+  </md-list>
+  <md-input-container style="width: 60%;float: right ">
+    <input mdInput [(ngModel)]="newItem.name" placeholder="Name" name="mane">
+  </md-input-container>
+  <md-input-container>
+    <input mdInput [(ngModel)]="newItem.sex" placeholder="Sex" name="sex">
+  </md-input-container>
+  <md-input-container>
+    <input mdInput [(ngModel)]="newItem.birth" placeholder="Birth" name="birth">
+  </md-input-container>
+  <button md-raised-button (click)="createItem(newItem)" style="float: right">Create Item</button>
+  <button md-raised-button (click)="updateItem(newItem)" style="float: right">Update Item</button>
+
+</form>
